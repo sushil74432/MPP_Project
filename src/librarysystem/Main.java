@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
-			LibrarySystem.INSTANCE.setTitle("Group5 Library Application");
+			LibrarySystem.INSTANCE.setTitle("Group F5 Library Application");
 			LibrarySystem.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			LibrarySystem.INSTANCE.init();
 			centerFrameOnDesktop(LibrarySystem.INSTANCE);

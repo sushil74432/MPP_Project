@@ -85,7 +85,7 @@ public class CheckoutPanel extends JFrame implements LibWindow {
 		JPanel listPanel = new JPanel();
 		middlePanel.add(listPanel, BorderLayout.NORTH);
 		listPanel.setBackground(ColorPalatte.BACKGROUND);
-		listPanel.setLayout(new GridLayout(0, 1, 0, 15));
+		listPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		// -------------member-------------------
 		txtMemberId = getLblAndTxt(listPanel, "Member Id", true);
 		txtMemberId.setFont(ThemeColor.formLabel);
@@ -103,7 +103,7 @@ public class CheckoutPanel extends JFrame implements LibWindow {
 		btnCheckout.setFont(new Font("Roboto Slab", Font.BOLD, 13));
 		btnCheckout.setForeground(Color.WHITE);
 		btnCheckout.setBackground(new Color(0, 0, 139));
-		btnCheckout.setBounds(345, 40, 90, 36);
+		btnCheckout.setBounds(345, 40, 95, 40);
 
 		btnCheckout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,7 +136,7 @@ public class CheckoutPanel extends JFrame implements LibWindow {
 		FlowLayout flowLayout = (FlowLayout) lblPanel.getLayout();
 		flowLayout.setVgap(10);
 		flowLayout.setHgap(30);
-		flowLayout.setAlignment(FlowLayout.RIGHT);
+		flowLayout.setAlignment(FlowLayout.LEFT);
 		panel.add(lblPanel);
 		JLabel label = new JLabel(strLbl);
 		lblPanel.add(label);

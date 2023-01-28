@@ -14,6 +14,7 @@ import business.ControllerInterface;
 import business.SystemController;
 import librarysystem.Panel.AddNewBookCopyPanel;
 import librarysystem.Panel.CheckoutPanel;
+import resources.ColorPalatte;
 
 public class LibrarySystem extends JFrame implements LibWindow {
 	/**
@@ -51,6 +52,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 
 	private void formatContentPane() {
 		mainPanel = new JPanel();
+		mainPanel.setBackground(ColorPalatte.BACKGROUND);
 		mainPanel.setLayout(new GridLayout(1, 1));
 		mainPanel.add(LoginWindow.INSTANCE.getMainPanel());
 		    

@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import business.ControllerInterface;
 import business.SystemController;
+import resources.ColorPalatte;
 
 
 public class AllBookIdsWindow extends JFrame implements LibWindow {
@@ -42,6 +43,7 @@ public class AllBookIdsWindow extends JFrame implements LibWindow {
 	
 	public void init() {
 		mainPanel = new JPanel();
+		mainPanel.setBackground(ColorPalatte.BACKGROUND);
 		mainPanel.setLayout(new BorderLayout());
 		defineTopPanel();
 		defineMiddlePanel();
@@ -57,6 +59,7 @@ public class AllBookIdsWindow extends JFrame implements LibWindow {
 	
 	public void defineTopPanel() {
 		topPanel = new JPanel();
+		topPanel.setBackground(ColorPalatte.BACKGROUND);
 		FlowLayout flowLayout = (FlowLayout) topPanel.getLayout();
 		flowLayout.setVgap(30);
 		JLabel AllIDsLabel = new JLabel("All Book IDs");
@@ -66,6 +69,7 @@ public class AllBookIdsWindow extends JFrame implements LibWindow {
 	
 	public void defineMiddlePanel() {
 		middlePanel = new JPanel();
+		middlePanel.setBackground(ColorPalatte.BACKGROUND);
 		FlowLayout fl = new FlowLayout(FlowLayout.CENTER, 25, 25);
 		middlePanel.setLayout(fl);
 		textArea = new TextArea(8, 20);
@@ -79,6 +83,7 @@ public class AllBookIdsWindow extends JFrame implements LibWindow {
 		JButton backToMainButn = new JButton("<= Back to Main");
 		backToMainButn.addActionListener(new BackToMainListener());
 		lowerPanel = new JPanel();
+		lowerPanel.setBackground(ColorPalatte.BACKGROUND);
 		lowerPanel.setLayout(new FlowLayout(FlowLayout.LEFT));;
 		lowerPanel.add(backToMainButn);
 	}

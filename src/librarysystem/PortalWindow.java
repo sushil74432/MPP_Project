@@ -2,6 +2,7 @@ package librarysystem;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -26,8 +27,10 @@ import librarysystem.Panel.AddNewBookCopyPanel;
 import librarysystem.Panel.AddNewBookPanel;
 import librarysystem.Panel.AddNewMemberPanel;
 import librarysystem.Panel.CheckoutPanel;
+import librarysystem.Panel.HomePanel;
 import librarysystem.Panel.SearchBookPanel;
 import librarysystem.Panel.SearchMemberPanel;
+import resources.ColorPalatte;
 import resources.ThemeColor;
 
 public class PortalWindow extends JFrame implements LibWindow {
@@ -137,7 +140,7 @@ public class PortalWindow extends JFrame implements LibWindow {
 				break;
 			default:
 				imagePath = "menu.png";
-				funcItems[i] = "          " + funcItems[i];
+				funcItems[i] = "" + funcItems[i];
 				break;
 			}
 
@@ -175,9 +178,12 @@ public class PortalWindow extends JFrame implements LibWindow {
 		});
 
 //		funcList.setSelectedIndex(FUNC_HOME);
+		
+		JPanel panelHome = new JPanel();
+		panelHome.setBackground(ColorPalatte.BACKGROUND);
 
 		cards = new JPanel(new CardLayout());
-		cards.add(new JPanel(), funcItems[FUNC_HOME]);
+		cards.add(panelHome, funcItems[FUNC_HOME]);
 		cards.add(AddNewMemberPanel.getNewMemberPanel(this), funcItems[FUNC_CREATE_NEW_MEM]);
 
 		cards.add(AddNewBookCopyPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_ADD_NEW_COPY]);
@@ -189,6 +195,7 @@ public class PortalWindow extends JFrame implements LibWindow {
 
 		cards.add(AllMemberIdsWindow.INSTANCE.getMainPanel(), funcItems[FUNC_ALL_MEM]);
 		cards.add(AllBookIdsWindow.INSTANCE.getMainPanel(), funcItems[FUNC_ALL_BOOK]);
+		cards.setBackground(ColorPalatte.BACKGROUND);
 
 //		funcList = new JList<String>(dipeshList);
 
@@ -221,6 +228,7 @@ public class PortalWindow extends JFrame implements LibWindow {
 	private void createPanels() {
 		// -----top Panel
 		JPanel topPanel = new JPanel();
+		topPanel.setBackground(ColorPalatte.BACKGROUND);
 		topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
 
 		lblWecome = new JLabel("Welcome " + username);
@@ -240,36 +248,36 @@ public class PortalWindow extends JFrame implements LibWindow {
 
 		// ------------------------
 		// getContentPane().add(mainPanel);
-
-		cards = new JPanel(new CardLayout());
-		cards.add(new JPanel(), funcItems[FUNC_HOME]);
-		cards.add(AddNewMemberPanel.getNewMemberPanel(this), funcItems[FUNC_CREATE_NEW_MEM]);
-
-		cards.add(AddNewBookCopyPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_ADD_NEW_COPY]);
-		cards.add(SearchMemberPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_SEARCH_MEM]);
-		cards.add(SearchBookPanel.getNewSearchBookPanel(this), funcItems[FUNC_SEARCH_BOOK]);
-		cards.add(CheckoutPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_CHECKOUT]);
-
-		cards.add(AddNewBookPanel.getNewBookPanel(this), funcItems[FUNC_ADD_NEW_BOOK]);
-
-		cards.add(AllMemberIdsWindow.INSTANCE.getMainPanel(), funcItems[FUNC_ALL_MEM]);
-		cards.add(AllBookIdsWindow.INSTANCE.getMainPanel(), funcItems[FUNC_ALL_BOOK]);
-
-		// connect JList elements to CardLayout panels
-		funcList.addListSelectionListener(event -> {
-			String value = funcList.getSelectedValue().toString();
-
-			if (value.compareTo(funcItems[FUNC_ALL_MEM]) == 0)
-				AllMemberIdsWindow.INSTANCE.setData();
-			else if (value.compareTo(funcItems[FUNC_ALL_BOOK]) == 0)
-				AllBookIdsWindow.INSTANCE.setData();
-
-			funcList.setSelectionBackground(ThemeColor.primaryColor);
-			funcList.setSelectionForeground(ThemeColor.white);
-
-			CardLayout cl = (CardLayout) (cards.getLayout());
-			cl.show(cards, value);
-		});
+//
+//		cards = new JPanel(new CardLayout());
+//		cards.add(new JPanel(), funcItems[FUNC_HOME]);
+//		cards.add(AddNewMemberPanel.getNewMemberPanel(this), funcItems[FUNC_CREATE_NEW_MEM]);
+//
+//		cards.add(AddNewBookCopyPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_ADD_NEW_COPY]);
+//		cards.add(SearchMemberPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_SEARCH_MEM]);
+//		cards.add(SearchBookPanel.getNewSearchBookPanel(this), funcItems[FUNC_SEARCH_BOOK]);
+//		cards.add(CheckoutPanel.INSTANCE.getMainPanel(this), funcItems[FUNC_CHECKOUT]);
+//
+//		cards.add(AddNewBookPanel.getNewBookPanel(this), funcItems[FUNC_ADD_NEW_BOOK]);
+//
+//		cards.add(AllMemberIdsWindow.INSTANCE.getMainPanel(), funcItems[FUNC_ALL_MEM]);
+//		cards.add(AllBookIdsWindow.INSTANCE.getMainPanel(), funcItems[FUNC_ALL_BOOK]);
+//
+//		// connect JList elements to CardLayout panels
+//		funcList.addListSelectionListener(event -> {
+//			String value = funcList.getSelectedValue().toString();
+//
+//			if (value.compareTo(funcItems[FUNC_ALL_MEM]) == 0)
+//				AllMemberIdsWindow.INSTANCE.setData();
+//			else if (value.compareTo(funcItems[FUNC_ALL_BOOK]) == 0)
+//				AllBookIdsWindow.INSTANCE.setData();
+//
+//			funcList.setSelectionBackground(ThemeColor.primaryColor);
+//			funcList.setSelectionForeground(ThemeColor.white);
+//
+//			CardLayout cl = (CardLayout) (cards.getLayout());
+//			cl.show(cards, value);
+//		});
 	}
 
 	private void addLogoutButtonListener(JButton butn) {

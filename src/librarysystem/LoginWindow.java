@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import business.ControllerInterface;
 import business.LoginException;
 import business.SystemController;
+import resources.ColorPalatte;
 
 public class LoginWindow extends JFrame implements LibWindow {
 	private static final long serialVersionUID = -4332346753166095308L;
@@ -78,6 +79,7 @@ public class LoginWindow extends JFrame implements LibWindow {
 		mainPanel.setBounds(100, 100, 1505, 1040);
 		mainPanel.setBackground(Color.WHITE);
 		mainPanel.setLayout(null);
+		mainPanel.setBackground(ColorPalatte.BACKGROUND);
 
 //		mainPanel.add(imagePanel);
 		mainPanel.add(panel);
